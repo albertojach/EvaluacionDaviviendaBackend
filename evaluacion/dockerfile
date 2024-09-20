@@ -1,0 +1,12 @@
+FROM openjdk:17.0-slim
+EXPOSE 8081
+COPY ./target/evaluacion-0.0.1-SNAPSHOT.war /usr/app/
+WORKDIR /usr/app
+ENTRYPOINT ["java", "-jar","evaluacion-0.0.1-SNAPSHOT.war"]
+
+ENV DATA_BASE_URL jdbc:oracle:thin:@127.0.0.1:1521:xe
+ENV USER_NAME PRUEBA_DAVIVIENDA
+ENV USER_PASS admin123
+ENV DATA_BASE_DRIVER oracle.jdbc.driver.OracleDriver
+ENV DATA_BASE_PLATAFORM org.hibernate.dialect.OracleDialect
+ENV DATA_BASE_DIALECT org.hibernate.dialect.OracleDialect
